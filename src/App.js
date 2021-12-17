@@ -7,7 +7,7 @@ import { ListProducts } from "./components/ListProducts";
 
 function App() {
   return (
-    <Container>
+    <Container fluid>
       <div className="App">
       <HeaderApp/>
       <ListProducts />

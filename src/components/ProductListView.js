@@ -3,19 +3,19 @@ import { Col, Row, Button, Badge } from "react-bootstrap";
 import "../assets/css/style.css";
 
 const styles = {
-  fontSize: "15px",
+  fontSize: "15px"
 };
 
 export const Product = ({ item }) => {
   const { model, make, year, image, price } = item;
   return (
-    <Col xs={4}>
+    <Col xs={4} >
       <Row>
         <Col xs={8}>
-          <div style={styles}>
+          <h5 className="text-primary">
             {model}-{year}<br/>
             <b>{make}</b>
-          </div>
+          </h5>
         </Col>
         <Col xs={4}>
           <Button variant="primary">
