@@ -1,19 +1,21 @@
 import React from "react";
-import { Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import json from "../example/MOCK_DATA.json";
-import { Product } from "./ProductListView";
+import { CardProduct } from "./CardProduct";
 const styles = {
   margin: "2vh",
   paddingTop: "5vh",
 };
 export const ListProducts = () => {
-  const products = json;
+  const products = json.products;
 
   return (
-    <Row style={styles}>
-      {products.map((product, index) => (
-        <Product key={index} item={product} />
-      ))}
-    </Row>
+    <Col xs={10} >
+      <Row style={styles}>
+        {products.map((product, index) => (
+          <CardProduct key={index} item={product} />
+        ))}
+      </Row>
+    </Col>
   );
 };

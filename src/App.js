@@ -8,7 +8,7 @@ import { ListProducts } from "./components/ListProducts";
 function App() {
   return (
     <Container fluid>
-      <div className="App">
+      <div className="App row">
       <HeaderApp/>
       <ListProducts />
       </div>
