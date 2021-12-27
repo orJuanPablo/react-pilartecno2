@@ -1,5 +1,5 @@
 
 export const saveLastInterestProduct = (product) => {
-  //?API local storage / SessionStorage
-  localStorage.setItem("lastProduct", product);
+  //? API localstorage persiste a la sesion / SessionStorage acaba junto con la sesion
+  sessionStorage.setItem("lastProduct", product);
 };

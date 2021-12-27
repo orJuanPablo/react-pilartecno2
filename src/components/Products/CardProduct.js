@@ -1,10 +1,20 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { Accordion, Badge, Button, Card } from "react-bootstrap";
 import { saveLastInterestProduct } from "../../app/services/storageServices";
+import db from "../../app/db/db";
 import "../../assets/css/style.css";
 
 export const CardProduct = ({ item }) => {
   const { title, image, price, description, category } = item;
+  const addPoductToCart = ({ title, price, category }) => {
+    db.cart.add({
+      title,
+      price,
+      category,
+    });
+  };
   return (
     <div className="card-container col-4">
       <Card className="card-product px-1 my-1 " border="primary">
@@ -23,15 +33,17 @@ export const CardProduct = ({ item }) => {
         ></Card.Img>
         <Card.Body>
           <div className="row">
-          <Button className = "col-4 m-auto" variant="warning" >+ Carrito</Button>
-          <Button
-            variant="primary"
-            className="col-4 m-auto"
-            onClick={() => saveLastInterestProduct(title)}
-          >
-            Precio <Badge bg="secondary">$ {price}</Badge>
-            <span className="visually-hidden"></span>
-          </Button>
+            <Button className="col-4 m-auto" variant="warning" onClick={()=>addPoductToCart(item)}>
+              <FontAwesomeIcon icon={faCartPlus} />
+            </Button>
+            <Button
+              variant="primary"
+              className="col-4 m-auto"
+              onClick={() => saveLastInterestProduct(title)}
+            >
+              Precio <Badge bg="secondary">$ {price}</Badge>
+              <span className="visually-hidden"></span>
+            </Button>
           </div>
           <Accordion className="mt-2">
             <Accordion.Item eventKey="0">
