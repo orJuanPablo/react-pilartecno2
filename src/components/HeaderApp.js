@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import {FilterBar} from "./FilterBar"
+import { FilterBar } from "./FilterBar";
+import { ShoppingCart } from "./ShoppingCart.js/ShoppingCart";
 
 export const HeaderApp = () => {
   return (
@@ -11,11 +12,11 @@ export const HeaderApp = () => {
           <Nav className="me-auto">
             <Nav.Link href="#home">Inicio</Nav.Link>
             <Nav.Link href="#features">Productos</Nav.Link>
-            <Nav.Link href="#pricing">Carrito</Nav.Link>
+            <ShoppingCart />
           </Nav>
         </Container>
       </Navbar>
-     <FilterBar />
+      <FilterBar />
     </>
   );
 };

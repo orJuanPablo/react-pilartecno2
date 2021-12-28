@@ -3,7 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
 import { HeaderApp } from "./components/HeaderApp";
-import { ListProducts } from "./components/ListProducts";
+import { ListProducts } from "./components/Products/ListProducts";
 
 function App() {
   return (
