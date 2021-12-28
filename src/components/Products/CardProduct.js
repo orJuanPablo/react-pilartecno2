@@ -41,7 +41,7 @@ export const CardProduct = ({ item }) => {
               className="col-4 m-auto"
               onClick={() => saveLastInterestProduct(title)}
             >
-              Precio <Badge bg="secondary">$ {price}</Badge>
+              <Badge bg="secondary">$ {price}</Badge>
               <span className="visually-hidden"></span>
             </Button>
           </div>
