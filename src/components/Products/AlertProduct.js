@@ -11,7 +11,7 @@ export const AlertProduct = () => {
   if (!!lastProduct) {
     return (
       <Alert
-        variant="danger"
+        variant="warning"
         onClose={() => {
           setLastProduct("");
         }}
