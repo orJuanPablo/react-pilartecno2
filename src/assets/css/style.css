@@ -4,3 +4,10 @@
 .img-product {
    max-height:  45vh;
 }
+.link {
+   text-decoration: none;
+   color: white;
+  }
+  .linkBlue {
+   text-decoration: none;
+  }
