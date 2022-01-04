@@ -9,19 +9,19 @@ import { useState } from "react";
 
 export const ShoppingCart = () => {
   const [productCart, setProductCart] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0)
-  useLiveQuery( async () => {
+  const [totalPrice, setTotalPrice] = useState(0);
+  useLiveQuery(async () => {
     const productDB = await db.cart.toArray();
     setProductCart(productDB);
   });
-  const getTotalPrice = () => {
-    const total = productCart?.reduce((totalPrice, currentProduct) => {
-      return totalPrice + currentProduct.price
-    },0)
-    setTotalPrice(total)
-  }
   useEffect(() => {
     if (productCart.length > 0) {
+      const getTotalPrice = () => {
+        const total = productCart?.reduce((totalPrice, currentProduct) => {
+          return totalPrice + currentProduct.price;
+        }, 0);
+        setTotalPrice(total);
+      };
       getTotalPrice();
     }
   }, [productCart]);
