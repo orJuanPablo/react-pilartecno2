@@ -6,6 +6,7 @@ import { ShoppingCartProducts } from "./ShoppingCartProducts";
 import { useLiveQuery } from "dexie-react-hooks";
 import db from "../../app/db/db";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const ShoppingCart = () => {
   const [productCart, setProductCart] = useState([]);
@@ -35,7 +36,9 @@ export const ShoppingCart = () => {
           return <ShoppingCartProducts key={index} item={product} />;
         })}
         <NavDropdown.Divider />
-        <NavDropdown.Item>Total: ${totalPrice} </NavDropdown.Item>
+        <NavDropdown.Item>
+          <Link className={"linkBlue"} to={'/purchase'}> Total: ${totalPrice} </Link>
+        </NavDropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );

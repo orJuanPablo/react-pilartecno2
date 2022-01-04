@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { FilterBar } from "./FilterBar";
 import { ShoppingCart } from "./ShoppingCart.js/ShoppingCart";
 
 export const HeaderApp = () => {
@@ -21,7 +20,6 @@ export const HeaderApp = () => {
           </Nav>
         </Container>
       </Navbar>
-      <FilterBar />
     </>
   );
 };

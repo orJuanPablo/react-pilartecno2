@@ -55,7 +55,7 @@ export const CardProduct = ({ item }) => {
           <Accordion className="mt-2">
             <Accordion.Item eventKey="0">
               <Accordion.Header>Descripción</Accordion.Header>
-              <Accordion.Body>{description}</Accordion.Body>
+              <Accordion.Body className="h6">{description}</Accordion.Body>
             </Accordion.Item>
           </Accordion>
         </Card.Body>
