@@ -32,7 +32,6 @@ export const ShoppingCart = () => {
       </Dropdown.Toggle>
       <Dropdown.Menu>
         {productCart?.map((product, index) => {
-          console.log(product);
           return <ShoppingCartProducts key={index} item={product} />;
         })}
         <NavDropdown.Divider />
