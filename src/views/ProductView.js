@@ -4,14 +4,17 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Badge, Col, Container, Row, Button } from "react-bootstrap";
 import { Rating } from "react-simple-star-rating";
-import { addProduct, getProductById } from "../app/services/productServices";
+import { addProduct } from "../app/services/productCartServices";
+import { getProductById } from "../app/services/productServices";
 
 export const ProductView = ({ match }) => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
     const { params } = match;
-    setProduct(getProductById(params.id));
+    getProductById(params.id).then((data) => {
+      setProduct(data);
+    });
   }, []);
   const addPoductToCart = ({ product }) => {
     addProduct({ product });

@@ -5,7 +5,7 @@ import { Table, Button } from "react-bootstrap";
 import {
   deleteProduct,
   getAllCartProducts,
-} from "../../app/services/productServices";
+} from "../../app/services/productCartServices";
 
 export const ShoppingCartDetail = () => {
   const [products, setProducts] = useState([]);
