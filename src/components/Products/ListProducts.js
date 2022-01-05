@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
-import json from "../../example/MOCK_DATA.json";
+import { getAllProducts } from "../../app/services/productServices";
 import { CardProduct } from "./CardProduct";
 import { FilterBar } from "./FilterBar";
 const styles = {
@@ -8,7 +8,12 @@ const styles = {
   padding: ".5vh",
 };
 export const ListProducts = () => {
-  const products = json.products;
+  const [products, setProducts] = useState(null);
+  useEffect(() => {
+    getAllProducts().then((data) => {
+      setProducts(data);
+    });
+  }, []);
 
   return (
     <>
@@ -17,7 +22,7 @@ export const ListProducts = () => {
       </Col>
       <Col xs={10}>
         <Row style={styles}>
-          {products.map((product, index) => (
+          {products?.map((product, index) => (
             <CardProduct key={index} item={product} />
           ))}
         </Row>

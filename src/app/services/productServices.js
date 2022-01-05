@@ -1,22 +1,15 @@
-import json from "../../example/MOCK_DATA.json";
-import db from "../db/db";
-export const getProductById = (id) => {
-  const productFromDB = json.products.find((element) => element.id == id);
-  return productFromDB;
-};
-export const addProduct = ({ product }) => {
-  const { title, price, category } = product;
-  db.cart.add({
-    title,
-    price,
-    category,
-  });
-};
-export const getAllCartProducts = async () => {
-  const productDB = await db.cart.toArray();
-  return productDB;
-};
+import api from "../../client/api";
+import routes from "../../routes/fakeStoreApiRoutes";
 
-export const deleteProduct = async (pk) => {
-  await db.cart.where("id").equals(pk).delete();
+export const getAllProducts = async () => {
+  return api.get(routes.getAllProducts());
+};
+export const getProductById = async (productId) => {
+  return api.get(routes.getProductsById(productId));
+};
+export const addNewProduct = async (product) => {
+  return api.post(routes.newProduct(), product);
+};
+export const getAllCategories = async () => {
+  return api.get(routes.getAllCategories());
 };
