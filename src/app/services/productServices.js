@@ -13,3 +13,6 @@ export const addNewProduct = async (product) => {
 export const getAllCategories = async () => {
   return api.get(routes.getAllCategories());
 };
+export const getProductsByCategories = async(category) => {
+  return api.get(routes.getProductsByCategories(category));
+}

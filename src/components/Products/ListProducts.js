@@ -7,7 +7,7 @@ const styles = {
   margin: "2vh",
   padding: ".5vh",
 };
-export const ListProducts = () => {
+export const ListProducts = ({ history }) => {
   const [products, setProducts] = useState(null);
   useEffect(() => {
     getAllProducts().then((data) => {
@@ -18,7 +18,7 @@ export const ListProducts = () => {
   return (
     <>
       <Col xs={2} className="bg-primary">
-        <FilterBar />
+        <FilterBar history={history} />
       </Col>
       <Col xs={10}>
         <Row style={styles}>
