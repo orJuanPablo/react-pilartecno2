@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { getAllCategories } from "../../app/services/productServices";
-import { filterByCategory } from "../../redux/actions/products/productsAction";
+import {
+  allProducts,
+  filterByCategory,
+} from "../../redux/actions/products/productsAction";
 
 export const CategoryFilter = ({ history }) => {
   const dispatcher = useDispatch();
@@ -17,7 +20,7 @@ export const CategoryFilter = ({ history }) => {
   };
   return (
     <DropdownButton id="dropdown-basic-button" title="Categorias">
-      <Dropdown.Item onClick={() => history.push("/")}>
+      <Dropdown.Item onClick={() => dispatcher(filterByCategory(""))}>
         Todas Las categorías
       </Dropdown.Item>
       {filters?.map((filter, index) => {

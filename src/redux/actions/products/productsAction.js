@@ -7,9 +7,9 @@ const getAllProductsAction = (products) => ({
   type: GET_ALL_PRODUCTS,
   payload: products,
 });
-const filterProducts = (products) => ({
+const filterProducts = (filter) => ({
   type: FILTER_PRODUCTS,
-  payload: products,
+  payload: filter,
 });
 //! Async actions
 export const allProducts = () => {
@@ -23,11 +23,7 @@ export const allProducts = () => {
   };
 };
 export const filterByCategory = (category) => {
-  return (dispatch, getState) => {
-    const state = getState();
-    const filtered = state.productsReducer.products.filter(
-      (product) => product.category === category
-    );
-    dispatch(filterProducts(filtered));
+  return (dispatch) => {
+    dispatch(filterProducts(category));
   };
 };

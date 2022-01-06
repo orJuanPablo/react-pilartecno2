@@ -5,6 +5,6 @@ import { FilteredProducts } from "../components/Products/FilteredProducts";
 export const FilteredProductsView = ({match, history}) => (
   <>
     <AlertProduct />
-    <FilteredProducts match={match} history={history}/>
+    {/* <FilteredProducts match={match} history={history}/> */}
   </>
 );
