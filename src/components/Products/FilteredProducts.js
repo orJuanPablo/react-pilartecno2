@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { getProductsByCategories } from "../../app/services/productServices";
 import { CardProduct } from "./CardProduct";
-import { FilterBar } from "./FilterBar";
+import { CategoryFilter } from "./CategoryFilter";
 const styles = {
   margin: "2vh",
   padding: ".5vh",
@@ -20,7 +20,7 @@ export const FilteredProducts = ({ match, history }) => {
   return (
     <>
       <Col xs={2} className="bg-primary">
-        <FilterBar history={history} />
+        <CategoryFilter history={history} />
       </Col>
       <Col xs={10}>
         <Row style={styles}>

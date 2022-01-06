@@ -1,20 +1,19 @@
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect } from "react";
-import { useState } from "react";
-import { Badge, Col, Container, Row, Button } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Badge, Button, Col, Container, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { Rating } from "react-simple-star-rating";
 import { addProduct } from "../app/services/productCartServices";
-import { getProductById } from "../app/services/productServices";
 
 export const ProductView = ({ match }) => {
+  const products = useSelector((state) => state.productsReducer.products);
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
     const { params } = match;
-    getProductById(params.id).then((data) => {
-      setProduct(data);
-    });
+    console.log(params);
+    setProduct(products.find((element) => element.id == params.id));
   }, []);
   const addPoductToCart = ({ product }) => {
     addProduct({ product });
