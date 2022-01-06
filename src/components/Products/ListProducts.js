@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { getAllProducts } from "../../app/services/productServices";
+import { useSelector } from "react-redux";
 import { CardProduct } from "./CardProduct";
 import { FilterBar } from "./FilterBar";
 const styles = {
@@ -8,12 +8,7 @@ const styles = {
   padding: ".5vh",
 };
 export const ListProducts = ({ history }) => {
-  const [products, setProducts] = useState(null);
-  useEffect(() => {
-    getAllProducts().then((data) => {
-      setProducts(data);
-    });
-  }, []);
+  const products = useSelector((state) => state.productsReducer.products);
 
   return (
     <>

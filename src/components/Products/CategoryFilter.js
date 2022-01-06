@@ -1,15 +1,19 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Dropdown, DropdownButton } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { getAllCategories } from "../../app/services/productServices";
+import { filterByCategory } from "../../redux/actions/products/productsAction";
 
 export const CategoryFilter = ({ history }) => {
+  const dispatcher = useDispatch();
+
   const [filters, setFilters] = useState(null);
   useEffect(() => {
     getAllCategories().then((data) => setFilters(data));
   }, []);
   const handleClickFilter = (filter) => {
-    history.push(`/category/${filter}`);
+    //history.push(`/category/${filter}`);
+    dispatcher(filterByCategory(filter));
   };
   return (
     <DropdownButton id="dropdown-basic-button" title="Categorias">
